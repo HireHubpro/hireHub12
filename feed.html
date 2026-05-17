@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed - HireHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .post-actions-bar { display: flex; gap: 2rem; padding: 0.5rem 0 0 4rem; border-top: 1px solid #f3f4f6; margin-top: 0.75rem; }
+        .action-btn { background: none; border: none; color: #666; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; padding: 0.4rem; border-radius: 4px; transition: 0.2s; }
+        .action-btn:hover { background-color: #f3f4f6; }
+        .action-btn.liked { color: #0a66c2; }
+        .comments-section { padding-left: 4rem; margin-top: 0.75rem; display: none; flex-direction: column; gap: 0.5rem; }
+        .comment-box { display: flex; gap: 0.5rem; background: #f8fafc; padding: 0.6rem; border-radius: 8px; font-size: 0.85rem; }
+        .comment-input-area { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+        .comment-input { flex-grow: 1; padding: 0.4rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 20px; font-size: 0.85rem; outline: none; }
+        .comment-submit-btn { background: #0a66c2; color: white; border: none; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.85rem; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="feed-header">
+            <div class="logo"><i class="fa-solid fa-user-group"></i> HireHub</div>
+            <div class="header-icons">
+                <i class="fa-regular fa-comment-dots"></i>
+                <i class="fa-regular fa-bell"></i>
+            </div>
+        </div>
+
+        <div class="create-post">
+            <div class="create-input-area">
+                <img src="https://ui-avatars.com/api/?name=User&background=f0f7ff&color=0a66c2" class="avatar-sm" id="current-user-avatar">
+                <input type="text" id="new-post-input" placeholder="What's on your mind?">
+            </div>
+            <div class="create-actions">
+                <button id="create-post-btn"><i class="fa-solid fa-pen-to-square text-primary"></i> Post</button>
+                <button><i class="fa-solid fa-briefcase" style="color: #16a34a;"></i> Job</button>
+                <button><i class="fa-solid fa-newspaper" style="color: #ea580c;"></i> Article</button>
+            </div>
+        </div>
+
+        <div id="feed-container">
+            <p style="padding: 2rem; text-align: center; color: gray;">Loading posts...</p>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="feed.html" class="nav-item active"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="create-post.html" class="nav-item"><i class="fa-regular fa-square-plus"></i>Post</a>
+            <a href="inbox.html" class="nav-item"><i class="fa-solid fa-inbox"></i>Inbox</a>
+            <a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i>Profile</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

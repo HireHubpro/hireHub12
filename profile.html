@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile - HireHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="profile-hero" style="position: relative; margin-bottom: 3.5rem;">
+            <div class="cover-photo" style="height: 140px; background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; position: relative;">
+                <a href="feed.html" style="position: absolute; top: 1rem; right: 1rem; color: white; background: rgba(0,0,0,0.4); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            
+            <div style="position: absolute; bottom: -45px; left: 1.5rem; width: 90px; height: 90px;">
+                <div id="profile-avatar-badge" style="width: 100%; height: 100%; border-radius: 50%; background-color: #0a66c2; color: white; font-size: 2rem; font-weight: bold; display: flex; align-items: center; justify-content: center; border: 4px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); overflow: hidden;">
+                    --
+                </div>
+                <label for="avatar-file-input" style="position: absolute; bottom: 0; right: 0; background: #0a66c2; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; cursor: pointer; font-size: 0.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                    <i class="fa-solid fa-camera"></i>
+                </label>
+                <input type="file" id="avatar-file-input" accept="image/*" style="display: none;">
+            </div>
+        </div>
+
+        <div class="profile-identity" style="padding: 0 1.5rem 1rem 1.5rem; border-bottom: 8px solid #f3f4f6;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <h3 id="profile-display-name" style="margin: 0; font-size: 1.4rem; color: #111;">Loading...</h3>
+                    <span id="profile-role-badge" style="background-color: #e0f2fe; color: #0369a1; font-size: 0.75rem; font-weight: bold; padding: 0.25rem 0.6rem; border-radius: 12px; text-transform: capitalize;">...</span>
+                </div>
+                <button id="edit-identity-btn" style="background: none; border: none; color: #0a66c2; font-weight: 600; cursor: pointer;">Edit</button>
+            </div>
+            
+            <div id="identity-view-mode">
+                <p id="profile-headline" style="margin: 0 0 0.25rem 0; font-size: 0.95rem; color: #444;">Computer Science Student & Full-Stack Developer</p>
+                <p id="profile-location" style="margin: 0; font-size: 0.85rem; color: #777;"><i class="fa-solid fa-location-dot"></i> Bengaluru, India</p>
+            </div>
+
+            <div id="identity-edit-mode" style="display: none; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                <input type="text" id="edit-name-input" placeholder="Full Name" style="padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
+                <input type="text" id="edit-headline-input" placeholder="Headline" style="padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
+                <input type="text" id="edit-location-input" placeholder="Location" style="padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
+                <button id="save-identity-btn" style="background: #0a66c2; color: white; border: none; padding: 0.4rem; border-radius: 4px; font-weight: bold; cursor: pointer;">Save</button>
+            </div>
+        </div>
+
+        <div class="profile-section" style="padding: 1.5rem; border-bottom: 8px solid #f3f4f6;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <h4 style="margin: 0; font-size: 1.1rem; color: #111;">About Myself</h4>
+                <button id="edit-about-btn" style="background: none; border: none; color: #0a66c2; font-weight: 600; cursor: pointer;">Edit</button>
+            </div>
+            
+            <p id="profile-about" style="margin: 0; font-size: 0.9rem; color: #555; line-height: 1.5;">
+                Add a bio about yourself...
+            </p>
+
+            <div id="about-edit-mode" style="display: none; flex-direction: column; gap: 0.5rem;">
+                <textarea id="edit-about-input" style="width: 100%; height: 100px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; resize: none;"></textarea>
+                <button id="save-about-btn" style="background: #0a66c2; color: white; border: none; padding: 0.4rem; border-radius: 4px; font-weight: bold; cursor: pointer;">Save</button>
+            </div>
+        </div>
+
+        <div class="profile-section" style="padding: 1.5rem; border-bottom: 8px solid #f3f4f6;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <h4 style="margin: 0; font-size: 1.1rem; color: #111;">Resume</h4>
+                <button id="edit-resume-btn" style="background: none; border: none; color: #0a66c2; font-weight: 600; cursor: pointer;">Edit</button>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1px solid #e0e0e0; padding: 1rem; border-radius: 8px; background: #fff;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fa-regular fa-file-pdf" style="font-size: 1.8rem; color: #dc2626;"></i>
+                    <div>
+                        <p id="profile-resume-name" style="margin: 0; font-size: 0.9rem; font-weight: 600; color: #111;">Adithya_Shenoy_Resume.pdf</p>
+                        <p style="margin: 0; font-size: 0.75rem; color: #777;">PDF • 650 KB</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-download" style="color: #555; cursor: pointer;"></i>
+            </div>
+
+            <div id="resume-edit-mode" style="display: none; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                <input type="text" id="edit-resume-input" placeholder="Enter Resume File Name" style="padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
+                <button id="save-resume-btn" style="background: #0a66c2; color: white; border: none; padding: 0.4rem; border-radius: 4px; font-weight: bold; cursor: pointer;">Save</button>
+            </div>
+        </div>
+
+        <div class="menu-list" style="display: flex; flex-direction: column;">
+            <div id="exp-header" style="display: flex; flex-direction: column; padding: 1.25rem 1.5rem; border-bottom: 1px solid #eee;">
+                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('exp-details').style.display = document.getElementById('exp-details').style.display === 'none' ? 'block' : 'none'">
+                    <span style="font-weight: 500; color: #333;"><i class="fa-solid fa-briefcase" style="margin-right: 0.75rem; color: #555;"></i> Experience</span>
+                    <i class="fa-solid fa-chevron-down" style="color: #ccc; font-size: 0.9rem;"></i>
+                </div>
+                <div id="exp-details" style="display: none; margin-top: 0.75rem; font-size: 0.9rem; color: #555;">
+                    <p id="profile-experience" style="margin: 0 0 0.5rem 0; white-space: pre-wrap;">No experience added yet.</p>
+                    <button id="edit-exp-btn" style="background: none; border: none; color: #0a66c2; font-weight: 600; padding: 0; cursor: pointer;">Edit Experience</button>
+                    <div id="exp-edit-mode" style="display: none; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                        <textarea id="edit-exp-input" style="width: 100%; height: 80px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; resize: none;"></textarea>
+                        <button id="save-exp-btn" style="background: #0a66c2; color: white; border: none; padding: 0.4rem; border-radius: 4px; font-weight: bold; cursor: pointer;">Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="edu-header" style="display: flex; flex-direction: column; padding: 1.25rem 1.5rem; border-bottom: 1px solid #eee;">
+                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('edu-details').style.display = document.getElementById('edu-details').style.display === 'none' ? 'block' : 'none'">
+                    <span style="font-weight: 500; color: #333;"><i class="fa-solid fa-graduation-cap" style="margin-right: 0.75rem; color: #555;"></i> Education</span>
+                    <i class="fa-solid fa-chevron-down" style="color: #ccc; font-size: 0.9rem;"></i>
+                </div>
+                <div id="edu-details" style="display: none; margin-top: 0.75rem; font-size: 0.9rem; color: #555;">
+                    <p id="profile-education" style="margin: 0 0 0.5rem 0; white-space: pre-wrap;">No education details added yet.</p>
+                    <button id="edit-edu-btn" style="background: none; border: none; color: #0a66c2; font-weight: 600; padding: 0; cursor: pointer;">Edit Education</button>
+                    <div id="edu-edit-mode" style="display: none; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                        <textarea id="edit-edu-input" style="width: 100%; height: 80px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; resize: none;"></textarea>
+                        <button id="save-edu-btn" style="background: #0a66c2; color: white; border: none; padding: 0.4rem; border-radius: 4px; font-weight: bold; cursor: pointer;">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="feed.html" class="nav-item"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="create-post.html" class="nav-item"><i class="fa-regular fa-square-plus"></i>Post</a>
+            <a href="inbox.html" class="nav-item"><i class="fa-solid fa-inbox"></i>Inbox</a>
+            <a href="profile.html" class="nav-item active"><i class="fa-solid fa-user"></i>Profile</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
